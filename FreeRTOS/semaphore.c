@@ -12,8 +12,12 @@ xTaskCreate(taskSerial1, "serial1", 128, NULL, 1, NULL);
 xTaskCreate(taskSerial2, "serial2", 128, NULL, 1, NULL);
 
 //2. create semaphore
-Binary_Semaphore = xSemaphoreCreateBinary();
-//3.release during setup
+Binary_Semaphore = xSemaphoreCreateBinary(); //--> xSemaphoreCreateMutex() for mutex
+
+  /*Mutex → for resource protection (use like a lock).
+Semaphore → for event signaling or resource counting.*/
+
+  //3.release during setup
 xSemaphoreGive(Binary_Semaphore);
 
 }
