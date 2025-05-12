@@ -1,4 +1,5 @@
 #include <Arduino_FreeRTOS.h>
+#include "semphr.h"
 #define rtDelay(v) {vTaskDelay(v/15);}
 
 //1. define Handle
@@ -24,7 +25,7 @@ void loop() {
 void taskSerial1() {
   while(1) {
   //4.take semaphore if possible
-  xSemaphoreTake(Binary_Semaphore, portMAX_DELAY) // (Semaphore, maxTrytime)
+  xSemaphoreTake(Binary_Semaphore, portMAX_DELAY); // (Semaphore, maxTrytime)
   Serial.println("Executing serial task 1");
   xSemaphoreGive(Binary_Semaphore); //release semaphore
   rtDelay(30);
@@ -35,7 +36,7 @@ void taskSerial1() {
 void taskSerial2() {
   while(1) {
   //5.same
-  xSemaphoreTake(Binary_Semaphore, portMAX_DELAY) // (Semaphore, maxTrytime)
+  xSemaphoreTake(Binary_Semaphore, portMAX_DELAY); // (Semaphore, maxTrytime)
   Serial.println("Executing serial task 2");
   xSemaphoreGive(Binary_Semaphore); //release semaphore
   rtDelay(30);
