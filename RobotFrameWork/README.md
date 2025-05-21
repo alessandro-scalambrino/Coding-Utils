@@ -14,9 +14,5 @@ ${GPIO_PIN}    <gpio-pin-number>
 ```
 or pass the variables via cmdline:
 ```
-robot -v HOST:<target-ip-or-hostname> \
-      -v USERNAME:<ssh-username> \
-      -v PASSWORD:<ssh-password> \
-      -v GPIO_PIN:<gpio-pin-number> \
-      gpio.robot
+robot -v HOST:<target-ip-or-hostname> -v USERNAME:<ssh-username> -v PASSWORD:<ssh-password> -v GPIO_PIN:<gpio-pin-number> gpio.robot
 ```
